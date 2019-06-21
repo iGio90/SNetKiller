@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SafetyNetKiller</string>
+    <string name="attach">Attach</string>
+    <string name="restore">Restore</string>
+    <string name="proc_not_found">google services process not found</string>
+    <string name="refresh">refresh</string>
+</resources>
