@@ -85,9 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        // todo: remove this later
-        extractFile(AGENT, mAgentPath);
-
         if (!mAgentPath.exists()) {
             if (!extractFile(AGENT, mAgentPath)) {
                 sDialog("failed to extract agent", true);
