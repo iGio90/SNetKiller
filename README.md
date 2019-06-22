@@ -15,6 +15,6 @@ Changelogs:
 https://github.com/iGio90/SNetKiller/blob/master/app/src/main/assets/agent-2019-06-22.js
 
 * init
-https://github.com/iGio90/SNetKiller/blob/master/app/src/main/assets/agent-2019-06-21.js
+agent-2019-06-21.js
 
 you can install app-debug.apk and use the unique button available
