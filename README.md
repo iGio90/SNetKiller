@@ -5,7 +5,7 @@ binaries paths but later, it is checking for more things such as current selinux
 more rules will be added eventually... I don't really like the fact i can't play certain games or
 use certain applications because i have my phone rooted.
 
-this makes snet believe we are good guys and bypass safetynet attest on apps.
+this makes snet believe we are good guys and bypass safetynet attest on apps which just check for basic integrity (which is what i was needing).
 you can use logcat and grep SNKiller to see what files are currently accessed.
 feel free to pr your patches to the agent if needed.
 
