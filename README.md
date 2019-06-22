@@ -9,6 +9,12 @@ this makes snet believe we are good guys and bypass safetynet attest on apps.
 you can use logcat and grep SNKiller to see what files are currently accessed.
 feel free to pr your patches to the agent if needed.
 
+## before
+![Alt text](/screen_before.png?raw=true "Optional Title")
+
+## after
+![Alt text](/screen_after.png?raw=true "Optional Title")
+
 Changelogs:
 * everything was seriously returning -1 for a typo in faccessat
 * let it believe we are in Enforcing selinux context, always
