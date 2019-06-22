@@ -39,7 +39,7 @@ Interceptor.attach(Module.findExportByName(null, 'open'), {
     onLeave: function(ret) {
         log(ret.toString() + ' - ' + this.path, 'open-ret');
         if (this.path === '/sys/fs/selinux/enforce') {
-            selinuxFd = ret;
+            selinuxFd = parseInt(ret);
         }
     }
 });
@@ -52,7 +52,7 @@ Interceptor.attach(Module.findExportByName(null, 'read'), {
         this.buf = this.context.x1;
     },
     onLeave: function(ret) {
-        if (this.fd === selinuxFd) {
+        if (parseInt(this.fd) === selinuxFd) {
             log('*replacing selinux enforce');
             this.buf.writeU8(1);
         }

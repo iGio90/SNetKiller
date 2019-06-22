@@ -24,7 +24,7 @@ import java.io.OutputStream;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String FRIDA = "frida-inject-12.6.8";
-    private static final String AGENT = "agent-2019-06-21.js";
+    private static final String AGENT = "agent-2019-06-22.js";
     private static final String TARGET = "com.google.android.gms";
 
     private File mInjectorPath;
@@ -85,11 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        if (!mAgentPath.exists()) {
-            if (!extractFile(AGENT, mAgentPath)) {
-                sDialog("failed to extract agent", true);
-            }
-        }
+        extractFile(AGENT, mAgentPath);
     }
 
     private void checkFridaInjected() {
