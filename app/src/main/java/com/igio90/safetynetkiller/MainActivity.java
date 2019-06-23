@@ -3,18 +3,15 @@ package com.igio90.safetynetkiller;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.chrisplus.rootmanager.RootManager;
-import com.chrisplus.rootmanager.container.Result;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,7 +21,7 @@ import java.io.OutputStream;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String FRIDA = "frida-inject-12.6.8";
-    private static final String AGENT = "agent-2019-06-22.js";
+    private static final String AGENT = "agent.js";
     private static final String TARGET = "com.google.android.gms";
 
     private File mInjectorPath;
@@ -75,8 +72,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void extractFrida() {
         if (!mInjectorPath.exists()) {
-            String fileName = FRIDA + "-android-arm" + (
-                    Build.CPU_ABI.contains("arm64") ? "64" : "");
+            String cpu = Build.CPU_ABI;
+            String cpuTag;
+            if (cpu.contains("arm")) {
+                if (cpu.contains("64")) {
+                    cpuTag = "arm64";
+                } else {
+                    cpuTag = "arm";
+                }
+            } else {
+                if (cpu.contains("64")) {
+                    cpuTag = "x86_64";
+                } else {
+                    cpuTag = "x86";
+                }
+            }
+
+            String fileName = FRIDA + "-android-" + cpuTag;
             if (extractFile(fileName, mInjectorPath)) {
                 RootManager.getInstance().runCommand("chmod 755 " + mInjectorPath.getPath());
             } else {

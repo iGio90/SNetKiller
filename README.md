@@ -16,11 +16,15 @@ feel free to pr your patches to the agent if needed.
 ![Alt text](/screen_after.png?raw=true "Optional Title")
 
 Changelogs:
+2019-06-23
+* added support for x86
+
+2019-06-22
 * everything was seriously returning -1 for a typo in faccessat
 * let it believe we are in Enforcing selinux context, always
 https://github.com/iGio90/SNetKiller/blob/master/app/src/main/assets/agent-2019-06-22.js
 
 * init
-agent-2019-06-21.js
+2019-06-21
 
 you can install app-debug.apk and use the unique button available
